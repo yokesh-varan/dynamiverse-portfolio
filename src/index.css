@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Cyberpunk Portfolio Design System - Dark Theme with Neon Accents */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark Cyberpunk Base Colors */
+    --background: 225 15% 6%;
+    --foreground: 186 100% 85%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 225 15% 8%;
+    --card-foreground: 186 100% 85%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 225 15% 8%;
+    --popover-foreground: 186 100% 85%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neon Primary - Cyan */
+    --primary: 186 100% 50%;
+    --primary-foreground: 225 15% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Dark Secondary */
+    --secondary: 225 15% 12%;
+    --secondary-foreground: 186 100% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 225 15% 12%;
+    --muted-foreground: 186 50% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Neon Accent - Purple */
+    --accent: 281 100% 65%;
+    --accent-foreground: 225 15% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 186 100% 85%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 225 15% 15%;
+    --input: 225 15% 12%;
+    --ring: 186 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* Cyberpunk Custom Colors */
+    --neon-cyan: 186 100% 50%;
+    --neon-purple: 281 100% 65%;
+    --neon-pink: 316 100% 75%;
+    --neon-green: 144 100% 50%;
+    --dark-purple: 255 20% 15%;
+    --glass-bg: 225 15% 8% / 0.8;
+    
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--background)), hsl(var(--dark-purple)));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--neon-cyan) / 0.3), transparent 70%);
+    
+    /* Shadows & Glows */
+    --glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.5);
+    --glow-purple: 0 0 30px hsl(var(--neon-purple) / 0.5);
+    --glow-intense: 0 0 50px hsl(var(--neon-cyan) / 0.8), 0 0 100px hsl(var(--neon-purple) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: box-shadow 0.3s ease-out;
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -55,43 +81,86 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+}
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+/* Cyberpunk Components & Utilities */
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-lg border border-border/20;
+    background: hsl(var(--glass-bg));
   }
+  
+  .neon-glow {
+    box-shadow: var(--glow-cyan);
+    transition: var(--transition-glow);
+  }
+  
+  .neon-glow:hover {
+    box-shadow: var(--glow-intense);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .floating-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+}
+
+@layer utilities {
+  .text-neon-cyan {
+    color: hsl(var(--neon-cyan));
+  }
+  
+  .text-neon-purple {
+    color: hsl(var(--neon-purple));
+  }
+  
+  .text-neon-pink {
+    color: hsl(var(--neon-pink));
+  }
+  
+  .bg-gradient-neon {
+    background: var(--gradient-neon);
+  }
+  
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: var(--glow-cyan); }
+  100% { box-shadow: var(--glow-intense); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @layer base {
@@ -100,6 +169,11 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 }
