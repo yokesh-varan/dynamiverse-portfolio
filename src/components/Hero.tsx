@@ -85,7 +85,17 @@ export const Hero = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button variant="hero" size="xl" className="group">
+              <Button 
+                variant="hero" 
+                size="xl" 
+                className="group"
+                onClick={() => {
+                  const projectsSection = document.getElementById("projects");
+                  if (projectsSection) {
+                    projectsSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
                 View My Work
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
@@ -96,7 +106,16 @@ export const Hero = () => {
                 </motion.div>
               </Button>
               
-              <Button variant="glass" size="xl">
+              <Button 
+                variant="glass" 
+                size="xl"
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
                 Get In Touch
               </Button>
             </motion.div>

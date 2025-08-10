@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, MapPin, Calendar } from "lucide-react";
+import { toast } from "sonner";
 
 export const About = () => {
   const ref = useRef(null);
@@ -106,7 +107,23 @@ export const About = () => {
                 className="pt-6"
                 whileHover={{ scale: 1.02 }}
               >
-                <Button variant="neon" size="lg" className="group">
+                <Button 
+                  variant="neon" 
+                  size="lg" 
+                  className="group"
+                  onClick={() => {
+                    // Create a mock PDF download
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.download = 'Alex_Johnson_Resume.pdf';
+                    // In a real app, this would be a proper PDF file
+                    // link.href = '/path/to/resume.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    toast.success("Resume download started!");
+                  }}
+                >
                   <Download className="h-4 w-4 mr-2 group-hover:animate-bounce" />
                   Download Resume
                 </Button>
