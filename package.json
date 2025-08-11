@@ -88,5 +88,18 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
-  }
+  },
+  "description": "**URL**: https://lovable.dev/projects/b1df2011-a551-437e-8e6e-cc9ab36c0611",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yokesh-varan/dynamiverse-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yokesh-varan/dynamiverse-portfolio/issues"
+  },
+  "homepage": "https://github.com/yokesh-varan/dynamiverse-portfolio#readme"
 }
