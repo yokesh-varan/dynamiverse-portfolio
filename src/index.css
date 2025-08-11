@@ -117,10 +117,10 @@
     --gradient-dark: linear-gradient(135deg, hsl(var(--background)), hsl(var(--secondary)));
     --gradient-glow: radial-gradient(circle at center, hsl(var(--primary) / 0.1), transparent 70%);
     
-    /* Light theme shadows */
-    --glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.2);
-    --glow-purple: 0 0 30px hsl(var(--neon-purple) / 0.2);
-    --glow-intense: 0 0 50px hsl(var(--primary) / 0.3), 0 0 100px hsl(var(--accent) / 0.1);
+    /* Light theme shadows - enhanced visibility */
+    --glow-cyan: 0 0 40px hsl(var(--neon-cyan) / 0.4), 0 0 80px hsl(var(--neon-cyan) / 0.2);
+    --glow-purple: 0 0 40px hsl(var(--neon-purple) / 0.4), 0 0 80px hsl(var(--neon-purple) / 0.2);
+    --glow-intense: 0 0 60px hsl(var(--primary) / 0.5), 0 0 120px hsl(var(--accent) / 0.3), 0 0 180px hsl(var(--primary) / 0.1);
   }
 }
 
