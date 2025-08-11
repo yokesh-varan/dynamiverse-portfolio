@@ -2,17 +2,38 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Engine } from "tsparticles-engine";
+import { useTheme } from "next-themes";
 
 interface ParticleBackgroundProps {
   theme?: "default" | "hero" | "projects" | "contact";
 }
 
 export const ParticleBackground = ({ theme = "default" }: ParticleBackgroundProps) => {
+  const { theme: currentTheme } = useTheme();
+  const isLight = currentTheme === "light";
+  
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
   const getParticleConfig = () => {
+    // Theme-based colors
+    const colors = isLight 
+      ? {
+          primary: "#3b82f6", // Blue for light theme
+          secondary: "#8b5cf6", // Purple for light theme
+          accent: "#ec4899", // Pink for light theme
+          success: "#10b981", // Green for light theme
+        }
+      : {
+          primary: "#00FFFF", // Cyan for dark theme
+          secondary: "#FF00FF", // Magenta for dark theme
+          accent: "#FF69B4", // Hot pink for dark theme
+          success: "#00FF90", // Green for dark theme
+        };
+    
+    const opacity = isLight ? 0.6 : 0.5;
+    const linkOpacity = isLight ? 0.4 : 0.3;
     const baseConfig = {
       background: {
         color: {
@@ -44,13 +65,13 @@ export const ParticleBackground = ({ theme = "default" }: ParticleBackgroundProp
       },
       particles: {
         color: {
-          value: "#00FFFF",
+          value: colors.primary,
         },
         links: {
-          color: "#00FFFF",
+          color: colors.primary,
           distance: 150,
           enable: true,
-          opacity: 0.3,
+          opacity: linkOpacity,
           width: 1,
         },
         move: {
@@ -71,7 +92,7 @@ export const ParticleBackground = ({ theme = "default" }: ParticleBackgroundProp
           value: 50,
         },
         opacity: {
-          value: 0.5,
+          value: opacity,
         },
         shape: {
           type: "circle",
@@ -89,14 +110,14 @@ export const ParticleBackground = ({ theme = "default" }: ParticleBackgroundProp
           ...baseConfig,
           particles: {
             ...baseConfig.particles,
-            color: { value: ["#00FFFF", "#FF00FF", "#FF69B4"] },
+            color: { value: [colors.primary, colors.secondary, colors.accent] },
             number: { ...baseConfig.particles.number, value: 80 },
             move: { ...baseConfig.particles.move, speed: 2 },
             size: { value: { min: 2, max: 5 } },
             links: {
               ...baseConfig.particles.links,
-              color: "#FF00FF",
-              opacity: 0.4,
+              color: colors.secondary,
+              opacity: linkOpacity + 0.1,
             },
           },
         };
@@ -106,13 +127,13 @@ export const ParticleBackground = ({ theme = "default" }: ParticleBackgroundProp
           ...baseConfig,
           particles: {
             ...baseConfig.particles,
-            color: { value: "#9D4EDD" },
+            color: { value: colors.secondary },
             number: { ...baseConfig.particles.number, value: 30 },
             move: { ...baseConfig.particles.move, speed: 0.5 },
             links: {
               ...baseConfig.particles.links,
-              color: "#9D4EDD",
-              opacity: 0.2,
+              color: colors.secondary,
+              opacity: linkOpacity - 0.1,
             },
           },
         };
@@ -122,13 +143,13 @@ export const ParticleBackground = ({ theme = "default" }: ParticleBackgroundProp
           ...baseConfig,
           particles: {
             ...baseConfig.particles,
-            color: { value: "#00FF90" },
+            color: { value: colors.success },
             number: { ...baseConfig.particles.number, value: 40 },
             move: { ...baseConfig.particles.move, speed: 1.5 },
             links: {
               ...baseConfig.particles.links,
-              color: "#00FF90",
-              opacity: 0.3,
+              color: colors.success,
+              opacity: linkOpacity,
             },
           },
         };
