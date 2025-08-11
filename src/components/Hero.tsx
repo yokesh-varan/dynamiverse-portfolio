@@ -1,23 +1,8 @@
 import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
 import { Button } from "@/components/ui/button";
 import { ParticleBackground } from "./ParticleBackground";
 import { ChevronDown } from "lucide-react";
 
-const AnimatedSphere = () => {
-  return (
-    <Sphere visible args={[1, 100, 200]} scale={2}>
-      <MeshDistortMaterial
-        color="#00FFFF"
-        attach="material"
-        distort={0.3}
-        speed={1.5}
-        roughness={0.4}
-      />
-    </Sphere>
-  );
-};
 
 export const Hero = () => {
   const containerVariants = {
@@ -55,13 +40,13 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-gradient-dark opacity-50" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
           {/* Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-center lg:text-left"
+            className="text-center"
           >
             <motion.div variants={itemVariants} className="mb-6">
               <h1 className="text-5xl md:text-7xl font-bold mb-4">
@@ -83,7 +68,7 @@ export const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button 
                 variant="hero" 
@@ -122,7 +107,7 @@ export const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="mt-12 flex justify-center lg:justify-start space-x-6"
+              className="mt-12 flex justify-center space-x-6"
             >
               {["React", "Node.js", "TypeScript", "Python"].map((tech, index) => (
                 <motion.div
@@ -137,23 +122,6 @@ export const Hero = () => {
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div>
-
-          {/* 3D Sphere */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="h-96 lg:h-[500px] relative"
-          >
-            <Canvas camera={{ position: [0, 0, 5] }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <AnimatedSphere />
-              <OrbitControls enableZoom={false} enablePan={false} />
-            </Canvas>
-            
-            <div className="absolute inset-0 bg-gradient-glow opacity-30 pointer-events-none" />
           </motion.div>
         </div>
       </div>
