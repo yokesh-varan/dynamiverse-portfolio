@@ -50,8 +50,8 @@ export const Hero = () => {
           >
             <motion.div variants={itemVariants} className="mb-6">
               <h1 className="text-5xl md:text-7xl font-bold mb-4">
-                <span className="gradient-text">Alex</span>{" "}
-                <span className="text-foreground">Johnson</span>
+                <span className="gradient-text">Yokesh</span>{" "}
+                <span className="text-foreground">Varan</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8">
                 Full Stack Developer & Creative Technologist

@@ -198,7 +198,7 @@ export const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">Email</p>
-                      <p className="text-muted-foreground">alex.johnson@example.com</p>
+                      <p className="text-muted-foreground">yokesxh12@gmail.com</p>
                     </div>
                   </div>
                   
@@ -208,7 +208,7 @@ export const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">Phone</p>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                      <p className="text-muted-foreground">+91 9150333380</p>
                     </div>
                   </div>
                   
@@ -218,7 +218,7 @@ export const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">Location</p>
-                      <p className="text-muted-foreground">San Francisco, CA</p>
+                      <p className="text-muted-foreground">Chennai</p>
                     </div>
                   </div>
                 </div>
