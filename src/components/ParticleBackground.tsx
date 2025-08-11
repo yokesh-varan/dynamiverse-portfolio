@@ -20,10 +20,10 @@ export const ParticleBackground = ({ theme = "default" }: ParticleBackgroundProp
     // Theme-based colors
     const colors = isLight 
       ? {
-          primary: "#3b82f6", // Blue for light theme
-          secondary: "#8b5cf6", // Purple for light theme
-          accent: "#ec4899", // Pink for light theme
-          success: "#10b981", // Green for light theme
+          primary: "#000000", // Black for light theme
+          secondary: "#1a1a1a", // Dark gray for light theme
+          accent: "#333333", // Medium gray for light theme
+          success: "#000000", // Black for light theme
         }
       : {
           primary: "#00FFFF", // Cyan for dark theme
@@ -32,8 +32,8 @@ export const ParticleBackground = ({ theme = "default" }: ParticleBackgroundProp
           success: "#00FF90", // Green for dark theme
         };
     
-    const opacity = isLight ? 0.6 : 0.5;
-    const linkOpacity = isLight ? 0.4 : 0.3;
+    const opacity = isLight ? 0.8 : 0.5;
+    const linkOpacity = isLight ? 0.6 : 0.3;
     const baseConfig = {
       background: {
         color: {

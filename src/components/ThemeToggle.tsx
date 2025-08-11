@@ -24,7 +24,7 @@ export const ThemeToggle = () => {
       <Switch
         checked={isDark}
         onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-        className="data-[state=checked]:bg-neon-cyan data-[state=unchecked]:bg-muted"
+        className="data-[state=checked]:bg-neon-cyan data-[state=unchecked]:bg-black border-black"
       />
       <Moon className={`h-4 w-4 transition-colors ${isDark ? 'text-primary' : 'text-muted-foreground'}`} />
     </div>
